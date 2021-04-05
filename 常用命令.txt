@@ -1,0 +1,103 @@
+
+
+go build //產生編譯文件以及依賴pkg
+
+go clean //移除當前代碼編譯生成的文件
+
+go doc // 打印GO文黨
+
+godoc -index // localhost:6060產生 可觀看API文件
+
+go get //可以根据要求和实际情况从互联网上下载或更新指定的代码败一级依赖包，并对他们进行编译和安装。
+
+go install //命令 go install 用于编译并安装指定的代码包及它们的依赖包。当指定的代码包的依赖包还没有被编译和安装时，该命令先去处理依赖包。
+
+go run // 可以便宜源码并运行命令源码文件。由于包含了编译动作，因此可接受所有用于 go build 命令的标记
+
+//測試相關
+go test .  //執行本目錄的測試程式
+
+go test -coverprofile="c.out" // 執行測試程式並且產生測試覆蓋率檔案 名為c.out
+
+go tool cover -html="c.out" // html網頁瀏覽產生出來的c.out內容 (限制cover檔案)
+
+go test -bench . -cpuprofile cpu.out //
+
+go tool pprof cpu.out // 再輸入 web 觀察cpuprofile文件
+
+go mod init {module名稱} //初始化 go.mod 檔案
+
+go mod tity //自動整理沒在用的依賴以及 未添加的依賴
+
+//go get golang.org/x/tools/cmd/godoc 安裝godoc
+// 显示文档的web版本 http -> 端口
+godoc -http=:6060
+
+
+RESTful可用作构建URL的准则，您可以建立会话和用户资源：
+
+GET /session/new 获取具有登录表单的网页
+POST /session 针对数据库验证凭据
+DELETE /session 破坏会话并重定向到/
+GET /users/new 获取具有注册表格的网页
+POST /users 将输入的信息作为新的/ user / xxx记录到数据库中
+GET /users/xxx //在配置文件视图中获取并呈现当前用户数据
+POST /users/xxx //更新有关用户的新信息
+
+
+docker 常用命令:
+
+docker images : show all images on server
+
+docker ps : show all containers (Running)
+
+docker stats : show memory cpu net-io info
+
+docker stop (container id) : stop docker server which input id
+
+docker restart (container id) : restart it
+
+docker rm (container id) : remove it
+
+docker logs (container id) : 查看輸出日至
+
+docker run (params) : 
+    -it : 開啟虛擬終端機，以互動的模式執行。
+    -v  : 將實體機器的目錄直接掛載至 Docker 容器內
+    -p  : 指定容器內部的port號對應到實體機器的port號
+
+//docker 啟動elasticsearch
+//docker run -d -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.9.3
+    //一般操作
+    //<server>: 9200 / index / type / id
+    // index -> database name
+    // type -> table name
+    // id -> unique key for object
+    //PUT / POST 新增修改資料
+    //GET取得資料
+
+    //<server>: 9200 / index / type / _search // 查詢所有資料
+    //Elasticsearch 7.x 后 所有_type已经不再使用 路径当中以_doc取代 type
+    //若要区分两种不同的db-table 则是使用组合字串 user-username / pet-petinfo
+
+
+-- 訂便當系統
+-- 登入 - 使用REDIS/DB存登入資訊 
+-- 菜單 - 同使用REDIS存資料 以及存在elasticseatch
+
+-- 訂便當 -- 一般的DB insert / 以及存在elasticseatch
+-- 菜單搜尋 -- 搜尋
+
+%v,原样输出
+%T，打印类型
+%t,bool类型
+%s，字符串
+%f，浮点
+%d，10进制的整数
+%b，2进制的整数
+%o，8进制
+%x，%X，16进制
+    %x：0-9，a-f
+    %X：0-9，A-F
+%c，打印字符
+%p，打印地址
