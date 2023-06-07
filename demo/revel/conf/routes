@@ -1,0 +1,14 @@
+
+
+# index
+GET / App.Index
+
+# user
+GET     /user           UserCtrl.Index
+GET     /user/:id       UserCtrl.GetOne
+POST    /user/:id       UserCtrl.Create
+PUT     /user/:id       UserCtrl.Update
+DELETE  /user/:id       UserCtrl.Delete
+
+
+

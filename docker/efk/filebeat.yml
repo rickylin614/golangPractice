@@ -1,0 +1,31 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /logs/api/*.log
+  json:
+    keys_under_root: true
+    overwrite_keys: true
+    message_key: 'msg'
+
+- type: log
+  enabled: true
+  paths:
+    - /logs/game/*.log
+  json:
+    keys_under_root: true
+    overwrite_keys: true
+    message_key: 'msg'
+
+output.elasticsearch:
+  hosts: ["${ELASTICSEARCH_HOSTS}"]
+
+# processors:
+#   - decode_json_fields:
+#       fields: ['msg']
+#       target: json
+
+# filebeat.autodiscover:
+#   providers:
+#     - type: docker
+#       hints.enabled: true

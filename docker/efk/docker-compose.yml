@@ -1,0 +1,88 @@
+version: '3.7'
+
+services:
+  # docker networks create
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.2
+    container_name: es01
+    environment:
+      - discovery.type=single-node
+    # volumes:
+      # - ./data01:/usr/volumes/elasticsearch/data
+    restart: always
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - elastic
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.001'
+          memory: 2G
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.13.2
+    environment:
+      SERVER_NAME: kibana.example.org
+      ELASTICSEARCH_HOSTS: http://es01:9200
+    restart: always
+    links: 
+      - es01
+    ports: 
+      - 5601:5601
+    networks:
+      - elastic
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.13.2
+    container_name: filebeat
+    environment: 
+      ELASTICSEARCH_HOSTS: es01:9200
+      KIBANA_HOSTS: kibana:5601
+    volumes: 
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /logs:/logs
+      # - /logs/game:/logs/game
+    restart: always
+    command: filebeat -e -strict.perms=false
+    links: 
+      - es01
+      - kibana
+    depends_on:
+      - es01
+      - kibana
+    networks:
+      - elastic
+
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:7.13.2
+    container_name: apm-test
+    restart: always
+    links:
+      - kibana
+      - es01
+    cap_add: ["CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID"]
+    cap_drop: ["ALL"]
+    ports:
+    - 8200:8200
+    networks:
+    - elastic
+    command: >
+        apm-server -e
+          -E apm-server.rum.enabled=true
+          -E setup.kibana.host=kibana:5601
+          -E setup.template.settings.index.number_of_replicas=0
+          -E apm-server.kibana.enabled=true
+          -E apm-server.kibana.host=kibana:5601
+          -E output.elasticsearch.hosts=["es01:9200"]
+
+
+volumes:
+  data01:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge

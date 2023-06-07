@@ -81,12 +81,6 @@ docker run (params) :
     //若要区分两种不同的db-table 则是使用组合字串 user-username / pet-petinfo
 
 
--- 訂便當系統
--- 登入 - 使用REDIS/DB存登入資訊 
--- 菜單 - 同使用REDIS存資料 以及存在elasticseatch
-
--- 訂便當 -- 一般的DB insert / 以及存在elasticseatch
--- 菜單搜尋 -- 搜尋
 
 %v,原样输出
 %T，打印类型

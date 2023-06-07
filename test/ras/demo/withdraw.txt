@@ -1,0 +1,376 @@
+// package withdraw
+
+// import (
+// 	"crypto/md5"
+// 	"crypto/rand"
+// 	"crypto/rsa"
+// 	"crypto/sha256"
+// 	"crypto/x509"
+// 	"encoding/base64"
+// 	"encoding/json"
+// 	"encoding/pem"
+// 	"errors"
+// 	"fmt"
+// 	"net/url"
+// 	"sparrow/sparrow2/types"
+// 	"strconv"
+// 	"strings"
+// 	"time"
+
+// 	"gitlab.paradise-soft.com.tw/backend/yaitoo/core/helper"
+
+// 	//"xunya/apis/glob"
+// 	"xunya/base/conf"
+// 	"xunya/shared"
+// 	"xunya/shared/merchant"
+
+// 	"gitlab.geax.io/sparrow/sparrow/log"
+// 	"gitlab.paradise-soft.com.tw/backend/yaitoo/cfg"
+// 	"gitlab.paradise-soft.com.tw/backend/yaitoo/core"
+// 	"gitlab.paradise-soft.com.tw/backend/yaitoo/micro"
+// 	"gitlab.paradise-soft.com.tw/glob/common/codebook"
+// )
+
+// var (
+// 	//TODO 受限架構，目前URL僅能寫死，二代系統再行優化
+// 	lianfubaoPayUrl    = "http://api.lianfubaopay.cn/api/remitOrder/submit"
+// 	lianfubaoQueryUrl  = "http://api.lianfubaopay.cn/api/remitOrder/query"
+// 	lianfubaoServerIPs = []string{"47.56.68.95", "47.56.67.253", "18.166.206.81", "18.167.2.183"}
+// 	lianfubaoLogger    = log.NewLogger("withdraw.lianfubao")
+// )
+
+// func init() {
+// 	RegisterWithdrawProvider("lianfubao", &WithdrawLianfubaoProvider{})
+
+// 	micro.OnStart(func() {
+// 		loadLianfubaoConfig(conf.Payment)
+// 	})
+
+// 	conf.Payment.OnChanged(loadLianfubaoConfig)
+
+// }
+
+// func loadLianfubaoConfig(c *cfg.Config) {
+// 	lianfubaoPayUrl = conf.Config.GetValue("lianfubao.withdraw", "pay", lianfubaoPayUrl)
+// 	lianfubaoQueryUrl = conf.Config.GetValue("lianfubao.withdraw", "query", lianfubaoQueryUrl)
+// 	lianfubaoServerIPs = helper.Split(c.GetValue("lianfubao.withdraw", "serverip", "47.56.68.95,47.56.67.253,18.166.206.81,18.167.2.183"), ",", true)
+// }
+
+// type WithdrawLianfubaoProvider struct {
+// }
+
+// //GetPayURL 获取支付地址
+// func (lianfubao *WithdrawLianfubaoProvider) GetPayURL(cc *core.Context, ww *Webwithdraw) (string, error) {
+// 	return "", nil
+// }
+
+// func (lianfubao *WithdrawLianfubaoProvider) GetBanks(cc *core.Context) map[string]shared.CardBank {
+// 	return map[string]shared.CardBank{
+// 		"ICBC":    shared.CardBank{Code: "ICBC", Name: "工商银行"},
+// 		"CCB":     shared.CardBank{Code: "CCB", Name: "建设银行"},
+// 		"ABC":     shared.CardBank{Code: "ABC", Name: "农业银行"},
+// 		"PSBC":    shared.CardBank{Code: "PSBS", Name: "邮政储蓄银行"},
+// 		"BOC":     shared.CardBank{Code: "BOC", Name: "中国银行"},
+// 		"COMM":    shared.CardBank{Code: "BOCO", Name: "交通银行"},
+// 		"CMB":     shared.CardBank{Code: "CMB", Name: "招商银行"},
+// 		"CEB":     shared.CardBank{Code: "CEB", Name: "光大银行"},
+// 		"CIB":     shared.CardBank{Code: "CIB", Name: "兴业银行"},
+// 		"CMBC":    shared.CardBank{Code: "CMBC", Name: "民生银行"},
+// 		"BCCB":    shared.CardBank{Code: "BCCB", Name: "北京银行"},
+// 		"CITIC":   shared.CardBank{Code: "CTTIC", Name: "中信银行"},
+// 		"GDB":     shared.CardBank{Code: "GDB", Name: "广东发展银行"},
+// 		"SPDB":    shared.CardBank{Code: "SPDB", Name: "浦东发展银行"},
+// 		"SPABANK": shared.CardBank{Code: "PINGANBANK", Name: "平安银行"},
+// 		"HXBANK":  shared.CardBank{Code: "HXB", Name: "华夏银行"},
+// 		"SHBANK":  shared.CardBank{Code: "SHB", Name: "上海银行"},
+// 		"BOHAIB":  shared.CardBank{Code: "CBHB", Name: "渤海银行"},
+// 		"NBBANK":  shared.CardBank{Code: "NBCB", Name: "宁波银行"},
+// 		"CZBANK":  shared.CardBank{Code: "CZB", Name: "浙商银行"},
+// 		"NJCB":    shared.CardBank{Code: "NJCB", Name: "南京银行"},
+// 		"HZCB":    shared.CardBank{Code: "HZCB", Name: "杭州银行"},
+// 		"BJRCB":   shared.CardBank{Code: "BJRCB", Name: "北京农村商业银行"},
+// 		"SHRCB":   shared.CardBank{Code: "SRCB", Name: "上海农商银行"},
+// 	}
+// }
+
+// func (lianfubao *WithdrawLianfubaoProvider) PayNow(cc *core.Context, ww *Webwithdraw, options *PaymentOptions) (string, string, error) {
+// 	defer func() {
+// 		if r := recover(); r != nil {
+// 			lianfubaoLogger.Errorf("id=%s panic err=%v", ww.ID, r)
+// 		}
+// 	}()
+
+// 	merch, err := shared.MerchantMgmt.Get(cc, ww.MerchantID)
+// 	if err != nil {
+// 		return "", "", err
+// 	}
+
+// 	// 发起代付接口
+
+// 	/*
+// 	   # 请求业务参数
+// 	   参数名称            参数含义                                       是否必填
+// 	   merId           商户编号                                          是
+// 	   version             接口版本（当前版本：1.1）                            是
+// 	   data            提交参数(body参数列表进行RSA加密)                       是
+
+// 	   # data
+// 	   参数名称            参数含义                                 参数类型   是否参入签名 是否必填
+// 	   merOrderNo       订单号(不能超过32位)                        String 是        是
+// 	   amount          订单金额 单位(元)                         String 是        是
+// 	   submitTime       订单提交时间(时间戳格式(毫秒)，与服务器时間不能超過24hr    String 是        是
+// 	   notifyUrl        异步通知地址                            String 是        是
+// 	   bankCode         银行代码(参考附录银行代码字典)                  String 是        是
+// 	   bankAccountNo     银行卡号                                 String 是        是
+// 	   bankAccountName       持卡人姓名(2~4个汉字)                       String 是        是
+// 	   sign            签名字符串                             String 否        是
+// 	*/
+
+// 	//data
+// 	smd := NewSortableMap()
+// 	now := strconv.FormatInt(time.Now().UTC().UnixNano(), 10)[:13]
+// 	smd.Add("merOrderNo", ww.ID)
+// 	smd.Add("amount", types.Ftoa(ww.Amount))
+// 	smd.Add("submitTime", now)
+// 	smd.Add("notifyUrl", strings.TrimRight(merch.Callback, "/")+"/webwithdraw/"+ww.ID+"/notify")
+// 	smd.Add("bankCode", ww.CardBankCode)
+// 	smd.Add("bankAccountNo", ww.CardNumber)
+// 	smd.Add("bankAccountName", ww.CardName)
+
+// 	//request_sign
+// 	sign, unsign := lianfubao.Sign(smd.SortAndJoinAll("&"), merchant.GetAppSecret(merch))
+// 	smd.Add("sign", sign)
+
+// 	//EncryptData
+// 	key := merchant.GetAppPubKey(merch)
+// 	encrypt, unEncrypt, err := lianfubao.EncryptData(smd.ToJson(), key)
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s key=%s data=%s", ww.ID, err, sign, unsign, encrypt, smd.ToJsonAll(), key, smd.ToJson())
+// 		return "", "", shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, err.Error())
+// 	}
+
+// 	sm := NewSortableMap()
+// 	sm.Add("merId", merch.AppKey)
+// 	sm.Add("version", "1.1")
+// 	sm.Add("data", encrypt)
+
+// 	//Req
+// 	client := NewClient(lianfubaoPayUrl)
+// 	bufp, err := client.PostWithJson(sm.ToJson())
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 		return "", "", shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, err.Error())
+// 	}
+
+// 	pResp := &LianfubaoPayResult{}
+// 	err = json.Unmarshal(bufp, pResp)
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 		return "", "", shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, string(bufp))
+// 	}
+
+// 	if pResp.Code == 200 {
+// 		return "", pResp.Message, nil
+// 	}
+
+// 	lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 	return "", "", shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, pResp.Message)
+// }
+
+// //查询支付结果
+// func (lianfubao *WithdrawLianfubaoProvider) QueryResult(cc *core.Context, ww *Webwithdraw) (bool, string, *time.Time, error) {
+// 	defer func() {
+// 		if r := recover(); r != nil {
+// 			lianfubaoLogger.Errorf("id=%s panic err=%v", ww.ID, r)
+// 		}
+// 	}()
+
+// 	merch, err := shared.MerchantMgmt.Get(cc, ww.MerchantID)
+// 	if err != nil {
+// 		return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), err
+// 	}
+
+// 	// 发起代付接口
+
+// 	/*
+// 	   # 请求业务参数
+// 	   参数名称            参数含义                                       是否必填
+// 	   merId           商户编号                                          是
+// 	   version             接口版本（当前版本：1.1）                            是
+// 	   data            提交参数(body参数列表进行RSA加密)                       是
+
+// 	   # data
+// 	   参数名称            参数含义                                 参数类型   是否参入签名 是否必填
+// 	   merOrderNo       订单号(不能超过32位)                        String 是        是
+// 	   submitTime       订单提交时间(时间戳格式(毫秒)，与服务器时間不能超過24hr    String 是        是
+// 	   sign            签名字符串                             String 否        是
+// 	*/
+
+// 	//data
+// 	smd := NewSortableMap()
+// 	now := strconv.FormatInt(time.Now().UTC().UnixNano(), 10)[:13]
+// 	smd.Add("merOrderNo", ww.ID)
+// 	smd.Add("submitTime", now)
+
+// 	//request_sign
+// 	sign, unsign := lianfubao.Sign(smd.SortAndJoinAll("&"), merchant.GetAppSecret(merch))
+// 	smd.Add("sign", sign)
+
+// 	//EncryptData
+// 	key := merchant.GetAppPubKey(merch)
+// 	encrypt, unEncrypt, err := lianfubao.EncryptData(smd.ToJson(), key)
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s key=%s data=%s", ww.ID, err, sign, unsign, encrypt, smd.ToJsonAll(), key, smd.ToJson())
+// 		return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, err.Error())
+// 	}
+
+// 	sm := NewSortableMap()
+// 	sm.Add("merId", merch.AppKey)
+// 	sm.Add("version", "1.1")
+// 	sm.Add("data", encrypt)
+
+// 	//Req
+// 	client := NewClient(lianfubaoQueryUrl)
+// 	bufp, err := client.PostWithJson(sm.ToJson())
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 		return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, string(bufp))
+// 	}
+
+// 	resp := &LianfubaoQueryResult{}
+// 	err = json.Unmarshal(bufp, resp)
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 		return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, string(bufp))
+// 	}
+
+// 	if resp.Code == 200 {
+// 		if resp.Data == nil {
+// 			lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 			return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, string(bufp))
+// 		}
+
+// 		message := "处理中"
+// 		if resp.Data.OrderState == 1 {
+// 			now := helper.Now(0)
+// 			return true, resp.Data.OrderNo, &now, nil
+// 		}
+
+// 		if resp.Data.OrderState == 2 {
+// 			message = "失败"
+// 		}
+
+// 		lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 		return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, message)
+// 	}
+
+// 	lianfubaoLogger.Errorf("id=%s err=%v sign=%s unsign=%s encrypt=%s unEncrypt=%s req=%s data=%s string(buf)=%s", ww.ID, err, sign, unsign, encrypt, unEncrypt, sm.ToJson(), smd.ToJson(), string(bufp))
+// 	return false, ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, resp.Message)
+// }
+
+// //验证支付通知信息
+// func (lianfubao *WithdrawLianfubaoProvider) ValidateCallback(cc *core.Context, ww *Webwithdraw, sourceIp string, sourceUrl *url.URL, formBody string) (interface{}, string, *time.Time, error) {
+// 	defer func() {
+// 		if r := recover(); r != nil {
+// 			lianfubaoLogger.Errorf("id=%s panic err=%v", ww.ID, r)
+// 		}
+// 	}()
+
+// 	if helper.Contains(lianfubaoServerIPs, sourceIp) == false {
+// 		return "ERROR", ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Payment_Callback_Invalid_Code, codebook.Status_Payment_Callback_Invalid, "回调IP非法:"+sourceIp)
+// 	}
+
+// 	merch, err := shared.MerchantMgmt.Get(cc, ww.MerchantID)
+// 	if err != nil {
+// 		return "ERROR", ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), err
+// 	}
+
+// 	u, err := url.ParseQuery(formBody)
+// 	if err != nil {
+// 		lianfubaoLogger.Error(ww.ID+":", formBody)
+// 		return "ERROR", ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), err
+// 	}
+
+// 	if u.Get("merOrderNo") != ww.ID {
+// 		lianfubaoLogger.Error(ww.ID+": 订单不符 ", formBody)
+// 		return "ERROR", ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, "订单不符")
+// 	}
+
+// 	if u.Get("merId") != merch.AppKey {
+// 		lianfubaoLogger.Error(ww.ID+": 商号ID不符 ", formBody)
+// 		return "ERROR", ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, "商号ID不符")
+// 	}
+
+// 	_, merchantTransID, _, err := lianfubao.QueryResult(cc, ww)
+// 	if err != nil {
+// 		lianfubaoLogger.Errorf("id=%s 查询支付结果 err=%s body=%s", ww.ID, err.Error(), formBody)
+// 		return "ERROR", ww.MerchantTransID, ww.MerchantTime.DateTimePtr(), shared.NewError(cc, codebook.Status_Unknown_Code, codebook.Status_Unknown, err.Error())
+// 	}
+
+// 	return "success", merchantTransID, nil, nil
+// }
+
+// func (lianfubao *WithdrawLianfubaoProvider) Sign(source string, key string) (string, string) {
+// 	sign := md5.Sum([]byte(source + "&key=" + key))
+// 	return fmt.Sprintf("%X", sign), source
+// }
+
+// func (lianfubao *WithdrawLianfubaoProvider) EncryptData(source string, key string) (string, string, error) {
+// 	pemSource := fmt.Sprintf(`-----BEGIN PUBLIC KEY-----
+// %s
+// -----END PUBLIC KEY-----`, key)
+// 	pemBytes := []byte(pemSource)
+
+// 	block, _ := pem.Decode(pemBytes)
+// 	if block == nil || block.Type != "PUBLIC KEY" {
+// 		kangshihfuLogger.Errorf("Error failed to decode PEM block")
+// 		return "", "", errors.New("failed to decode PEM block")
+// 	}
+
+// 	pub, err := x509.ParsePKIXPublicKey(block.Bytes)
+// 	if err != nil {
+// 		kangshihfuLogger.Errorf("Error failed to parse private key: %s", err)
+// 		return "", "", err
+// 	}
+
+// 	pubKey := pub.(*rsa.PublicKey)
+// 	hash := sha256.New()
+// 	msgLen := len(source)
+// 	step := pubKey.Size() - 2*hash.Size() - 2
+// 	var encryptedBytes []byte
+
+// 	for start := 0; start < msgLen; start += step {
+// 		finish := start + step
+// 		if finish > msgLen {
+// 			finish = msgLen
+// 		}
+// 		encryptedBlockBytes, err := rsa.EncryptPKCS1v15(rand.Reader, pubKey, []byte(source)[start:finish])
+// 		if err != nil {
+// 			kangshihfuLogger.Errorf("rsa.EncryptPKCS1v15 err: %s\nkey=%s\n", err, key)
+// 			return "", "", err
+// 		}
+// 		encryptedBytes = append(encryptedBytes, encryptedBlockBytes...)
+// 	}
+
+// 	return base64.StdEncoding.EncodeToString(encryptedBytes), source, nil
+// }
+
+// type LianfubaoPayResult struct {
+// 	Code    int    `json:"code,omitempty"`
+// 	Message string `json:"message,omitempty"`
+// }
+
+// type LianfubaoQueryResult struct {
+// 	Code    int                 `json:"code,omitempty"`
+// 	Message string              `json:"message,omitempty"`
+// 	Data    *LianfubaoQueryData `json:"data,omitempty"`
+// }
+
+// type LianfubaoQueryData struct {
+// 	MerOrderNo string  `json:"merOrderNo"`
+// 	OrderState int     `json:"orderState"` //订单状态(0=处理中，1=成功，2=失败)
+// 	Sign       string  `json:"sign"`
+// 	OrderNo    string  `json:"orderNo"`
+// 	Amount     float64 `json:"amount"`
+// 	MerId      int64   `json:"merId"`
+// }
