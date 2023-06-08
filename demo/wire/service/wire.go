@@ -1,8 +1,8 @@
 package service
 
 import (
-	"practice/demo/wire/service/bank"
-	"practice/demo/wire/service/user"
+	"wiretest/service/bank"
+	"wiretest/service/user"
 
 	"github.com/google/wire"
 )
