@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"myGolang/ch4_struct/4-2/tree"
+	"practice/basic/ch4_struct/4-2/tree"
 )
 
 //封裝

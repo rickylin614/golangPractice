@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"myGolang/ch5_interface/5-1/mock"
-	"myGolang/ch5_interface/5-1/real"
+	"practice/basic/ch5_interface/5-1/mock"
+	"practice/basic/ch5_interface/5-1/real"
 	"time"
 )
 
-//interface 內部表達的即函數
-//實現為隱式 實現者只需定義結構(可不同)以及實現的方法
+// interface 內部表達的即函數
+// 實現為隱式 實現者只需定義結構(可不同)以及實現的方法
 type Retriever interface {
 	Get(url string) string
 }

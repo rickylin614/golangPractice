@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
-	"myGolang/ch7_fileIoNweb/7-3/fileServer/myHandle"
 	"net/http"
+	"practice/basic/ch7_fileIoNweb/7-3/fileServer/myHandle"
 
 	// _ "net/http/pprof" //網址輸入/debug/pprof可以觀察內部數據
 	"os"
@@ -13,7 +13,7 @@ import (
 
 type appHandler func(writer http.ResponseWriter, req *http.Request) error
 
-//調用func(writer http.ResponseWriter, req *http.Request) error 並轉換為  func(http.ResponseWriter, *http.Request)
+// 調用func(writer http.ResponseWriter, req *http.Request) error 並轉換為  func(http.ResponseWriter, *http.Request)
 func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 	//headler 為一個function
 	//依然需要一個匿名函數去實現 調用handler並取出func(http.ResponseWriter, *http.Request)
@@ -45,7 +45,7 @@ func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 	}
 }
 
-//定義可以給用戶看到的ERROR 使用此類的需要有Error()以及Message兩類
+// 定義可以給用戶看到的ERROR 使用此類的需要有Error()以及Message兩類
 type userError interface {
 	error
 	Message() string

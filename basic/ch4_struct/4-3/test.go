@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"myGolang/ch4_struct/4-2/tree"
+	"practice/basic/ch4_struct/4-2/tree"
 )
 
 //如何擴充系統類型/別人的類型
@@ -10,7 +10,7 @@ import (
 //1. 定義別名
 //2. 使用組合
 
-//宣告一個已有的結構，在此結構另外組合自己需要的方法以及參數
+// 宣告一個已有的結構，在此結構另外組合自己需要的方法以及參數
 type MyTreeNode struct {
 	node *tree.TreeNode
 }

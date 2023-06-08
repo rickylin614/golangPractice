@@ -1,7 +1,6 @@
 package main
 
 import (
-	"demo/apmdemo/zlog"
 	"fmt"
 	"math"
 	"strings"
@@ -10,6 +9,7 @@ import (
 	"github.com/bwmarrin/snowflake"
 	gouuid "github.com/gofrs/uuid"
 	olduuid "github.com/google/uuid"
+	"github.com/rickylin614/common/zlog"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

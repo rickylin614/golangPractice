@@ -1,7 +1,7 @@
 package main
 
 import (
-	"myGolang/ch16_elasticsearch/elasticeDemo"
+	"practice/basic/ch16_elasticsearch/elasticeDemo"
 )
 
 //一般操作

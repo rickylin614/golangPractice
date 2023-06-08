@@ -1,9 +1,9 @@
 package server
 
 import (
-	"demo/wire/service/bank"
-	"demo/wire/service/user"
 	"net/http"
+	"practice/demo/wire/service/bank"
+	"practice/demo/wire/service/user"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/wire"

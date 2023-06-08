@@ -1,8 +1,8 @@
 package main
 
 import (
-	"demo/payment/payment/validation"
 	"fmt"
+	"practice/demo/payment/payment/validation"
 )
 
 var (

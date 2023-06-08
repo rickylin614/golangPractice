@@ -1,10 +1,11 @@
 package main
 
 import (
-	"demo/apmdemo/zlog"
 	// "errors"
 	"errors"
 	"fmt"
+
+	"github.com/rickylin614/common/zlog"
 	// "golang.org/x/errors"
 )
 

@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"myGolang/ch16_elasticsearch/elasticeDemo"
 	"net/http"
+	"practice/basic/ch16_elasticsearch/elasticeDemo"
 	"regexp"
 	"strings"
 	"time"

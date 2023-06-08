@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"go/types"
 
-	_ "demo/test/packagereflect/modeltest"
+	_ "practice/test/packagereflect/modeltest"
 )
 
 func main() {
 
 	// create a new type checker
 	var conf types.Config
-	pkg, err := conf.Check("demo/test/packagereflect/modeltest", nil, nil, nil)
+	pkg, err := conf.Check("/test/packagereflect/modeltest", nil, nil, nil)
 
 	if err != nil {
 		panic(err)

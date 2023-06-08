@@ -3,8 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"myGolang/ch7_fileIoNweb/7-1/fib"
 	"os"
+	"practice/basic/ch7_fileIoNweb/7-1/fib"
 )
 
 //資源管理及出錯處理
