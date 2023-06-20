@@ -11,6 +11,7 @@ require (
 	github.com/garyburd/redigo v1.6.4
 	github.com/gin-contrib/gzip v0.0.6
 	github.com/gin-gonic/gin v1.9.1
+	github.com/go-co-op/gocron v1.28.3
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-redsync/redsync/v4 v4.8.1
 	github.com/godruoyi/go-snowflake v0.0.2
@@ -31,6 +32,8 @@ require (
 	gorm.io/gorm v1.25.1
 	moul.io/zapgorm2 v1.3.0
 )
+
+require github.com/robfig/cron/v3 v3.0.1 // indirect
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0 // indirect
@@ -85,6 +88,7 @@ require (
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/redis/go-redis/v9 v9.0.5 // indirect
 	github.com/santhosh-tekuri/jsonschema v1.2.4 // indirect
+	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/trivago/tgo v1.0.7 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
@@ -94,7 +98,7 @@ require (
 	go.elastic.co/apm/module/apmsql v1.14.0 // indirect
 	go.elastic.co/apm/module/apmzap v1.14.0 // indirect
 	go.elastic.co/fastjson v1.1.0 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/arch v0.3.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
