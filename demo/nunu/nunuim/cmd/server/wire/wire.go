@@ -1,12 +1,12 @@
 //go:build wireinject
 // +build wireinject
-
 package wire
 
 import (
-	"github.com/gin-gonic/gin"
 	"nunuim/internal/provider"
 	"nunuim/pkg/log"
+
+	"github.com/gin-gonic/gin"
 	"github.com/google/wire"
 	"github.com/spf13/viper"
 )

@@ -8,6 +8,7 @@ package wire
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 	"nunuim/internal/dao"
 	"nunuim/internal/handler"
 	"nunuim/internal/middleware"
@@ -15,7 +16,6 @@ import (
 	"nunuim/internal/service"
 	"nunuim/pkg/helper/sonyflake"
 	"nunuim/pkg/log"
-	"github.com/spf13/viper"
 )
 
 // Injectors from wire.go:

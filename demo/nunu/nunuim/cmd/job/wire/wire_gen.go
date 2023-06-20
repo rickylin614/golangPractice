@@ -7,10 +7,10 @@
 package wire
 
 import (
+	"github.com/spf13/viper"
 	"nunuim/internal/dao"
 	"nunuim/internal/job"
 	"nunuim/pkg/log"
-	"github.com/spf13/viper"
 )
 
 // Injectors from wire.go:
