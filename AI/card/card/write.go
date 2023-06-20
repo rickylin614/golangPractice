@@ -57,5 +57,5 @@ func WriteCard6ResultsToCSV(ctx context.Context, results <-chan Card6Result, fil
 
 	fmt.Printf("玩家A牌型總計: %+v\n", playerA)
 	fmt.Printf("玩家B牌型總計: %+v\n", playerB)
-	fmt.Printf("和局總計: %+v", tieCount)
+	fmt.Printf("和局總計: %+v\n", tieCount)
 }
