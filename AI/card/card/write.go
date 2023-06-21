@@ -21,11 +21,11 @@ func WriteResultsToCSV(ctx context.Context, results <-chan CardResult, filename 
 	defer writer.Flush()
 
 	for result := range results {
-		var row []string
-		for _, card := range result.Cards {
-			row = append(row, strconv.Itoa(card))
+		row := make([]string, len(result.Cards)+1)
+		for i, card := range result.Cards {
+			row[i] = strconv.Itoa(card)
 		}
-		row = append(row, result.Result)
+		row[len(result.Cards)] = result.Result
 		writer.Write(row)
 	}
 }
