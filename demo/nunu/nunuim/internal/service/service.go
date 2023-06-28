@@ -2,20 +2,20 @@ package service
 
 import (
 	"nunuim/internal/middleware"
+	"nunuim/pkg/helper/sid"
 	"nunuim/pkg/log"
-	"github.com/sony/sonyflake"
 )
 
 type Service struct {
-	logger    *log.Logger
-	sonyflake *sonyflake.Sonyflake
-	jwt       *middleware.JWT
+	logger *log.Logger
+	sid    *sid.Sid
+	jwt    *middleware.JWT
 }
 
-func NewService(logger *log.Logger, sonyflake *sonyflake.Sonyflake, jwt *middleware.JWT) *Service {
+func NewService(logger *log.Logger, sid *sid.Sid, jwt *middleware.JWT) *Service {
 	return &Service{
-		logger:    logger,
-		sonyflake: sonyflake,
-		jwt:       jwt,
+		logger: logger,
+		sid:    sid,
+		jwt:    jwt,
 	}
 }

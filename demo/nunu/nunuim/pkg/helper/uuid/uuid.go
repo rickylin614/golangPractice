@@ -1,8 +1,7 @@
 package uuid
 
-import uuid "github.com/gofrs/uuid"
+import "github.com/google/uuid"
 
 func GenUUID() string {
-	id, _ := uuid.NewV7()
-	return id.String()
+	return uuid.NewString()
 }

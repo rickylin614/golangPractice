@@ -1,7 +1,6 @@
 package main
 
 import (
-	"nunuim/cmd/job/wire"
 	"nunuim/pkg/config"
 	"nunuim/pkg/log"
 )
@@ -11,7 +10,7 @@ func main() {
 	logger := log.NewLog(conf)
 	logger.Info("start")
 
-	app, cleanup, err := wire.NewApp(conf, logger)
+	app, cleanup, err := newApp(conf, logger)
 	if err != nil {
 		panic(err)
 	}

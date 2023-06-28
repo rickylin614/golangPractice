@@ -2,16 +2,16 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
+
 	"nunuim/internal/middleware"
 	"nunuim/pkg/log"
-	"github.com/sony/sonyflake"
 )
 
 type Handler struct {
 	logger *log.Logger
 }
 
-func NewHandler(logger *log.Logger, sf *sonyflake.Sonyflake) *Handler {
+func NewHandler(logger *log.Logger) *Handler {
 	return &Handler{
 		logger: logger,
 	}
