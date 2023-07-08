@@ -12,7 +12,6 @@ require (
 	github.com/gin-contrib/gzip v0.0.6
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-co-op/gocron v1.28.3
-	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-redsync/redsync/v4 v4.8.1
 	github.com/godruoyi/go-snowflake v0.0.2
 	github.com/gofrs/uuid v4.4.0+incompatible
@@ -37,7 +36,6 @@ require (
 require (
 	github.com/gomodule/redigo v1.8.3 // indirect
 	github.com/mattn/go-sqlite3 v2.0.1+incompatible // indirect
-	github.com/onsi/gomega v1.25.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	go.uber.org/dig v1.17.0 // indirect
 )
@@ -56,7 +54,6 @@ require (
 	github.com/elastic/go-licenser v0.3.1 // indirect
 	github.com/elastic/go-sysinfo v1.1.1 // indirect
 	github.com/elastic/go-windows v1.0.0 // indirect
-	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
@@ -93,7 +90,7 @@ require (
 	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
-	github.com/redis/go-redis/v9 v9.0.5 // indirect
+	github.com/redis/go-redis/v9 v9.0.5
 	github.com/santhosh-tekuri/jsonschema v1.2.4 // indirect
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/stretchr/testify v1.8.4 // indirect
