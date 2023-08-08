@@ -2,9 +2,10 @@ package job
 
 import (
 	"fmt"
-	"github.com/go-co-op/gocron"
 	"nunuim/pkg/log"
 	"time"
+
+	"github.com/go-co-op/gocron"
 )
 
 type Job struct {

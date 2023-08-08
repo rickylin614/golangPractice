@@ -7,13 +7,19 @@ import (
 
 func main() {
 	ctx := context.Background()
-	contextFunc(ctx)
+	contextFunc(&ctx)
 	fmt.Println(ctx.Value("key"))
-	fmt.Printf("%s\n", ctx)
-	ctx2 := context.WithValue(ctx, "key2", "value2")
-	fmt.Println(ctx2.Value("key2"))
+	ctx2 := context.WithValue(ctx, "key", "value2")
+	fmt.Println(ctx.Value("key"))
+	fmt.Println(ctx2.Value("key"))
+
 }
 
-func contextFunc(c context.Context) {
-	c = context.WithValue(c, "key", "value")
+func contextFunc(c *context.Context) {
+	*c = context.WithValue(*c, "key", "value3")
+	// fmt.Println(c)
+}
+
+func contextTest() {
+
 }

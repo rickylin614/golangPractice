@@ -18,10 +18,10 @@ func main() {
 
 	// 使用密鑰生成 TOTP 實例
 	account := []string{
-		"Finance",
-		"Login",
-		"Operations",
-		"Order",
+		"Finance 财务",
+		"Login 登录",
+		"Operations 运营",
+		"Order 订单",
 	}
 	issuer := "Super365"
 
