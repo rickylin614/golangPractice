@@ -10,10 +10,10 @@ import (
 func main() {
 	// OTP 密鑰
 	secret := []string{
-		"JD5MKJQJMLCNWRN4TMR43ZPB2VKS6H2I",
-		"R67EHKV5F44NJTWUOD2TX5OFLEBESFNU",
-		"QDL5YBSQNVHXS6C3IDX63AKXRTVDIHTN",
-		"22LC4FJQVUQRP2ACVMSQXL5T6GBGIGVG",
+		"VNKNYOWI65RAGQVUNTN37DBPZH2U5XCL",
+		"4QQFH5OXP4AQRS5ZKETINQ64WUBB6GG6",
+		"D3VOMETPLPHLILMG674YECSTOR5YYB5Y",
+		"SIJLL6MZ6D5JKCW325AOCTZU6URBGRGZ",
 	}
 
 	// 使用密鑰生成 TOTP 實例
@@ -23,7 +23,7 @@ func main() {
 		"Operations 运营",
 		"Order 订单",
 	}
-	issuer := "Super365"
+	issuer := "Super365-BR"
 
 	for i := 0; i < 4; i++ {
 		// 產生 OTP 認證的 URL
@@ -41,7 +41,7 @@ func main() {
 
 		fmt.Println(URL.String())
 
-		url := fmt.Sprintf("otpauth://totp/%s?issuer=Super365&secret=%s", account[i], secret[i])
+		url := fmt.Sprintf("otpauth://totp/%s?issuer=%s&secret=%s", account[i], issuer, secret[i])
 
 		// 使用 go-qrcode 套件產生 QR Code 圖片
 		err = qrcode.WriteFile(url, qrcode.Medium, 256, fmt.Sprintf("%s-%s-qr-code.png", issuer, account[i]))

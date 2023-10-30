@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"go/types"
 
-	_ "practice/test/packagereflect/modeltest"
+	_ "test/packagereflect/modeltest"
 )
 
 func main() {
