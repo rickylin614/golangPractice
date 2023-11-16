@@ -10,10 +10,10 @@ import (
 func main() {
 	// OTP 密鑰
 	secret := []string{
-		"VNKNYOWI65RAGQVUNTN37DBPZH2U5XCL",
-		"4QQFH5OXP4AQRS5ZKETINQ64WUBB6GG6",
-		"D3VOMETPLPHLILMG674YECSTOR5YYB5Y",
-		"SIJLL6MZ6D5JKCW325AOCTZU6URBGRGZ",
+		"Q2VBMSYKDZY7OCWJRKT5RMOQD6UIWOR7",
+		"TT6HK2U3RJJAXSL72NULRTA6ARB4OPMT",
+		"M5ZQOELUT3AJQJIHIQJ6ZOJY7PZFLFQZ",
+		"6NTZFU6A6FM5FMJFPXME2FWQTE246XZY",
 	}
 
 	// 使用密鑰生成 TOTP 實例
@@ -23,7 +23,9 @@ func main() {
 		"Operations 运营",
 		"Order 订单",
 	}
-	issuer := "Super365-BR"
+	//範例: Super365-VN001越南(Login登錄),Super365-IA印度(Login登錄)
+	//品牌名稱-代碼+國家名稱(功能英文+功能中文)
+	issuer := "Teen Patti-IN002印度" // 品牌名稱
 
 	for i := 0; i < 4; i++ {
 		// 產生 OTP 認證的 URL
@@ -32,12 +34,6 @@ func main() {
 			panic(err)
 		}
 		URL.Path += fmt.Sprintf("/%s:%s", url.PathEscape(issuer), url.PathEscape(account[i]))
-
-		// params := url.Values{}
-		// params.Add("secret", secret[i])
-		// params.Add("issuer", issuer)
-
-		// URL.RawQuery = params.Encode()
 
 		fmt.Println(URL.String())
 
