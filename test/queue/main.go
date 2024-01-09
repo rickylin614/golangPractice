@@ -17,8 +17,8 @@ import (
 
 func main() {
 	// channelExample()
-	redisExample()
-	// kafkaExample()
+	// redisExample()
+	kafkaExample()
 }
 
 func kafkaExample() {
@@ -116,14 +116,14 @@ func publishMessages(publisher message.Publisher) {
 			panic(err)
 		}
 
-		time.Sleep(time.Microsecond * 250)
+		time.Sleep(time.Millisecond * 500)
 	}
 }
 
 func process(messages <-chan *message.Message) {
 	for msg := range messages {
 		log.Printf("received message: %s, payload: %s", msg.UUID, string(msg.Payload))
-		time.Sleep(time.Second * 2)
+		// time.Sleep(time.Second * 2)
 		msg.Ack()
 	}
 }
