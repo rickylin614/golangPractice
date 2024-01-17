@@ -1,0 +1,439 @@
+<unlinkable>.Cal STEXT size=282 args=0x8 locals=0xe8 funcid=0x0 align=0x0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	TEXT	<unlinkable>.Cal(SB), ABIInternal, $232-8
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	LEAQ	-104(SP), R12
+	0x0005 00005 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	CMPQ	R12, 16(R14)
+	0x0009 00009 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PCDATA	$0, $-2
+	0x0009 00009 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	JLS	262
+	0x000f 00015 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PCDATA	$0, $-1
+	0x000f 00015 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PUSHQ	BP
+	0x0010 00016 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	MOVQ	SP, BP
+	0x0013 00019 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	SUBQ	$224, SP
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	FUNCDATA	$0, gclocals繚J5F+7Qw7O7ve2QcWC7DpeQ==(SB)
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	FUNCDATA	$1, gclocals繚Gi+ewyUrOze142o4ULSYMg==(SB)
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	FUNCDATA	$2, <unlinkable>.Cal.stkobj(SB)
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	FUNCDATA	$5, <unlinkable>.Cal.arginfo1(SB)
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	FUNCDATA	$6, <unlinkable>.Cal.argliveinfo(SB)
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PCDATA	$3, $1
+	0x001a 00026 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	MOVQ	AX, <unlinkable>..autotmp_19+24(SP)
+	0x001f 00031 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	MOVUPS	X15, <unlinkable>..autotmp_9+176(SP)
+	0x0028 00040 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	MOVUPS	X15, <unlinkable>..autotmp_9+192(SP)
+	0x0031 00049 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	MOVUPS	X15, <unlinkable>..autotmp_9+208(SP)
+	0x003a 00058 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	LEAQ	<unlinkable>..autotmp_10+32(SP), DI
+	0x003f 00063 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	PCDATA	$0, $-2
+	0x003f 00063 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	LEAQ	-48(DI), DI
+	0x0043 00067 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	DUFFZERO	$313
+	0x0056 00086 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	PCDATA	$0, $-1
+	0x0056 00086 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	LEAQ	<unlinkable>..autotmp_10+32(SP), CX
+	0x005b 00091 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	MOVQ	CX, <unlinkable>..autotmp_9+192(SP)
+	0x0063 00099 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	PCDATA	$1, $1
+	0x0063 00099 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	CALL	runtime.fastrand(SB)
+	0x0068 00104 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:8)	MOVL	AX, <unlinkable>..autotmp_9+188(SP)
+	0x006f 00111 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:9)	LEAQ	type:map[int]int(SB), AX
+	0x0076 00118 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:9)	LEAQ	<unlinkable>..autotmp_9+176(SP), BX
+	0x007e 00126 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:9)	MOVL	$1, CX
+	0x0083 00131 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:9)	CALL	runtime.mapassign_fast64(SB)
+	0x0088 00136 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:9)	MOVQ	$2, (AX)
+	0x008f 00143 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:10)	LEAQ	type:map[int]int(SB), AX
+	0x0096 00150 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:10)	LEAQ	<unlinkable>..autotmp_9+176(SP), BX
+	0x009e 00158 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:10)	MOVL	$4, CX
+	0x00a3 00163 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:10)	CALL	runtime.mapassign_fast64(SB)
+	0x00a8 00168 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:10)	MOVQ	$6, (AX)
+	0x00af 00175 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:11)	LEAQ	type:map[int]int(SB), AX
+	0x00b6 00182 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:11)	LEAQ	<unlinkable>..autotmp_9+176(SP), BX
+	0x00be 00190 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:11)	MOVL	$9, CX
+	0x00c3 00195 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:11)	CALL	runtime.mapassign_fast64(SB)
+	0x00c8 00200 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:11)	MOVQ	$10, (AX)
+	0x00cf 00207 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	LEAQ	type:map[int]int(SB), AX
+	0x00d6 00214 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	LEAQ	<unlinkable>..autotmp_9+176(SP), BX
+	0x00de 00222 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	MOVQ	<unlinkable>..autotmp_19+24(SP), CX
+	0x00e3 00227 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	PCDATA	$1, $0
+	0x00e3 00227 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	CALL	runtime.mapaccess2_fast64(SB)
+	0x00e8 00232 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	TESTB	BL, BL
+	0x00ea 00234 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	JEQ	248
+	0x00ec 00236 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:14)	MOVQ	(AX), AX
+	0x00ef 00239 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:15)	ADDQ	$224, SP
+	0x00f6 00246 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:15)	POPQ	BP
+	0x00f7 00247 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:15)	RET
+	0x00f8 00248 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:17)	MOVQ	<unlinkable>..autotmp_19+24(SP), AX
+	0x00fd 00253 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:17)	ADDQ	$224, SP
+	0x0104 00260 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:17)	POPQ	BP
+	0x0105 00261 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:17)	RET
+	0x0106 00262 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:17)	NOP
+	0x0106 00262 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PCDATA	$1, $-1
+	0x0106 00262 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PCDATA	$0, $-2
+	0x0106 00262 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	MOVQ	AX, 8(SP)
+	0x010b 00267 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	CALL	runtime.morestack_noctxt(SB)
+	0x0110 00272 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	MOVQ	8(SP), AX
+	0x0115 00277 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	PCDATA	$0, $-1
+	0x0115 00277 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:7)	JMP	0
+	0x0000 4c 8d 64 24 98 4d 3b 66 10 0f 86 f7 00 00 00 55  L.d$.M;f.......U
+	0x0010 48 89 e5 48 81 ec e0 00 00 00 48 89 44 24 18 44  H..H......H.D$.D
+	0x0020 0f 11 bc 24 b0 00 00 00 44 0f 11 bc 24 c0 00 00  ...$....D...$...
+	0x0030 00 44 0f 11 bc 24 d0 00 00 00 48 8d 7c 24 20 48  .D...$....H.|$ H
+	0x0040 8d 7f d0 48 89 6c 24 f0 48 8d 6c 24 f0 e8 00 00  ...H.l$.H.l$....
+	0x0050 00 00 48 8b 6d 00 48 8d 4c 24 20 48 89 8c 24 c0  ..H.m.H.L$ H..$.
+	0x0060 00 00 00 e8 00 00 00 00 89 84 24 bc 00 00 00 48  ..........$....H
+	0x0070 8d 05 00 00 00 00 48 8d 9c 24 b0 00 00 00 b9 01  ......H..$......
+	0x0080 00 00 00 e8 00 00 00 00 48 c7 00 02 00 00 00 48  ........H......H
+	0x0090 8d 05 00 00 00 00 48 8d 9c 24 b0 00 00 00 b9 04  ......H..$......
+	0x00a0 00 00 00 e8 00 00 00 00 48 c7 00 06 00 00 00 48  ........H......H
+	0x00b0 8d 05 00 00 00 00 48 8d 9c 24 b0 00 00 00 b9 09  ......H..$......
+	0x00c0 00 00 00 e8 00 00 00 00 48 c7 00 0a 00 00 00 48  ........H......H
+	0x00d0 8d 05 00 00 00 00 48 8d 9c 24 b0 00 00 00 48 8b  ......H..$....H.
+	0x00e0 4c 24 18 e8 00 00 00 00 84 db 74 0c 48 8b 00 48  L$........t.H..H
+	0x00f0 81 c4 e0 00 00 00 5d c3 48 8b 44 24 18 48 81 c4  ......].H.D$.H..
+	0x0100 e0 00 00 00 5d c3 48 89 44 24 08 e8 00 00 00 00  ....].H.D$......
+	0x0110 48 8b 44 24 08 e9 e6 fe ff ff                    H.D$......
+	rel 78+4 t=7 runtime.duffzero+313
+	rel 100+4 t=7 runtime.fastrand+0
+	rel 114+4 t=14 type:map[int]int+0
+	rel 132+4 t=7 runtime.mapassign_fast64+0
+	rel 146+4 t=14 type:map[int]int+0
+	rel 164+4 t=7 runtime.mapassign_fast64+0
+	rel 178+4 t=14 type:map[int]int+0
+	rel 196+4 t=7 runtime.mapassign_fast64+0
+	rel 210+4 t=14 type:map[int]int+0
+	rel 228+4 t=7 runtime.mapaccess2_fast64+0
+	rel 268+4 t=7 runtime.morestack_noctxt+0
+<unlinkable>.m1 STEXT size=88 args=0x0 locals=0x20 funcid=0x0 align=0x0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	TEXT	<unlinkable>.m1(SB), ABIInternal, $32-0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	CMPQ	SP, 16(R14)
+	0x0004 00004 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	PCDATA	$0, $-2
+	0x0004 00004 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	JLS	81
+	0x0006 00006 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	PCDATA	$0, $-1
+	0x0006 00006 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	PUSHQ	BP
+	0x0007 00007 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	MOVQ	SP, BP
+	0x000a 00010 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	SUBQ	$24, SP
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	FUNCDATA	$0, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	FUNCDATA	$1, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	XORL	AX, AX
+	0x0010 00016 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	XORL	CX, CX
+	0x0012 00018 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	JMP	64
+	0x0014 00020 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	MOVQ	AX, <unlinkable>.i+16(SP)
+	0x0019 00025 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	MOVQ	CX, <unlinkable>.result+8(SP)
+	0x001e 00030 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:23)	PCDATA	$1, $0
+	0x001e 00030 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:23)	NOP
+	0x0020 00032 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:23)	CALL	<unlinkable>.Cal(SB)
+	0x0025 00037 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	MOVQ	<unlinkable>.i+16(SP), CX
+	0x002a 00042 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	INCQ	CX
+	0x002d 00045 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:23)	MOVQ	<unlinkable>.result+8(SP), DX
+	0x0032 00050 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:23)	LEAQ	(DX)(AX*2), DX
+	0x0036 00054 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	MOVQ	CX, AX
+	0x0039 00057 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	MOVQ	DX, CX
+	0x003c 00060 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	NOP
+	0x0040 00064 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	CMPQ	AX, $100000
+	0x0046 00070 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:22)	JLT	20
+	0x0048 00072 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	MOVQ	CX, AX
+	0x004b 00075 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	ADDQ	$24, SP
+	0x004f 00079 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	POPQ	BP
+	0x0050 00080 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	RET
+	0x0051 00081 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:25)	NOP
+	0x0051 00081 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	PCDATA	$1, $-1
+	0x0051 00081 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	PCDATA	$0, $-2
+	0x0051 00081 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	CALL	runtime.morestack_noctxt(SB)
+	0x0056 00086 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	PCDATA	$0, $-1
+	0x0056 00086 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:20)	JMP	0
+	0x0000 49 3b 66 10 76 4b 55 48 89 e5 48 83 ec 18 31 c0  I;f.vKUH..H...1.
+	0x0010 31 c9 eb 2c 48 89 44 24 10 48 89 4c 24 08 66 90  1..,H.D$.H.L$.f.
+	0x0020 e8 00 00 00 00 48 8b 4c 24 10 48 ff c1 48 8b 54  .....H.L$.H..H.T
+	0x0030 24 08 48 8d 14 42 48 89 c8 48 89 d1 0f 1f 40 00  $.H..BH..H....@.
+	0x0040 48 3d a0 86 01 00 7c cc 48 89 c8 48 83 c4 18 5d  H=....|.H..H...]
+	0x0050 c3 e8 00 00 00 00 eb a8                          ........
+	rel 33+4 t=7 <unlinkable>.Cal+0
+	rel 82+4 t=7 runtime.morestack_noctxt+0
+<unlinkable>.m2 STEXT size=91 args=0x0 locals=0x20 funcid=0x0 align=0x0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	TEXT	<unlinkable>.m2(SB), ABIInternal, $32-0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	CMPQ	SP, 16(R14)
+	0x0004 00004 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	PCDATA	$0, $-2
+	0x0004 00004 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	JLS	84
+	0x0006 00006 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	PCDATA	$0, $-1
+	0x0006 00006 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	PUSHQ	BP
+	0x0007 00007 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	MOVQ	SP, BP
+	0x000a 00010 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	SUBQ	$24, SP
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	FUNCDATA	$0, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	FUNCDATA	$1, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	XORL	AX, AX
+	0x0010 00016 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	XORL	CX, CX
+	0x0012 00018 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	JMP	67
+	0x0014 00020 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	MOVQ	AX, <unlinkable>.i+16(SP)
+	0x0019 00025 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	MOVQ	CX, <unlinkable>.result+8(SP)
+	0x001e 00030 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:33)	PCDATA	$1, $0
+	0x001e 00030 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:33)	NOP
+	0x0020 00032 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:33)	CALL	<unlinkable>.Cal(SB)
+	0x0025 00037 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:33)	MOVQ	AX, <unlinkable>.c(SB)
+	0x002c 00044 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	MOVQ	<unlinkable>.i+16(SP), CX
+	0x0031 00049 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	INCQ	CX
+	0x0034 00052 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:34)	MOVQ	<unlinkable>.result+8(SP), DX
+	0x0039 00057 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:34)	LEAQ	(DX)(AX*2), DX
+	0x003d 00061 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	MOVQ	CX, AX
+	0x0040 00064 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	MOVQ	DX, CX
+	0x0043 00067 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	CMPQ	AX, $100000
+	0x0049 00073 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:32)	JLT	20
+	0x004b 00075 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	MOVQ	CX, AX
+	0x004e 00078 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	ADDQ	$24, SP
+	0x0052 00082 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	POPQ	BP
+	0x0053 00083 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	RET
+	0x0054 00084 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:36)	NOP
+	0x0054 00084 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	PCDATA	$1, $-1
+	0x0054 00084 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	PCDATA	$0, $-2
+	0x0054 00084 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	CALL	runtime.morestack_noctxt(SB)
+	0x0059 00089 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	PCDATA	$0, $-1
+	0x0059 00089 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:30)	JMP	0
+	0x0000 49 3b 66 10 76 4e 55 48 89 e5 48 83 ec 18 31 c0  I;f.vNUH..H...1.
+	0x0010 31 c9 eb 2f 48 89 44 24 10 48 89 4c 24 08 66 90  1../H.D$.H.L$.f.
+	0x0020 e8 00 00 00 00 48 89 05 00 00 00 00 48 8b 4c 24  .....H......H.L$
+	0x0030 10 48 ff c1 48 8b 54 24 08 48 8d 14 42 48 89 c8  .H..H.T$.H..BH..
+	0x0040 48 89 d1 48 3d a0 86 01 00 7c c9 48 89 c8 48 83  H..H=....|.H..H.
+	0x0050 c4 18 5d c3 e8 00 00 00 00 eb a5                 ..]........
+	rel 33+4 t=7 <unlinkable>.Cal+0
+	rel 40+4 t=14 <unlinkable>.c+0
+	rel 85+4 t=7 runtime.morestack_noctxt+0
+<unlinkable>.m3 STEXT nosplit size=33 args=0x0 locals=0x0 funcid=0x0 align=0x0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:39)	TEXT	<unlinkable>.m3(SB), NOSPLIT|NOFRAME|ABIInternal, $0-0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:39)	FUNCDATA	$0, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:39)	FUNCDATA	$1, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:39)	XORL	AX, AX
+	0x0002 00002 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:39)	XORL	CX, CX
+	0x0004 00004 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:41)	JMP	21
+	0x0006 00006 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:41)	LEAQ	1(AX), DX
+	0x000a 00010 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:42)	LEAQ	(CX)(AX*2), CX
+	0x000e 00014 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:42)	LEAQ	6(CX), CX
+	0x0012 00018 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:41)	MOVQ	DX, AX
+	0x0015 00021 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:41)	CMPQ	AX, $100000
+	0x001b 00027 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:41)	JLT	6
+	0x001d 00029 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:44)	MOVQ	CX, AX
+	0x0020 00032 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:44)	RET
+	0x0000 31 c0 31 c9 eb 0f 48 8d 50 01 48 8d 0c 41 48 8d  1.1...H.P.H..AH.
+	0x0010 49 06 48 89 d0 48 3d a0 86 01 00 7c e9 48 89 c8  I.H..H=....|.H..
+	0x0020 c3                                               .
+<unlinkable>.init STEXT nosplit size=1 args=0x0 locals=0x0 funcid=0x0 align=0x0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:28)	TEXT	<unlinkable>.init(SB), NOSPLIT|NOFRAME|PKGINIT|ABIInternal, $0-0
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:28)	FUNCDATA	$0, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:28)	FUNCDATA	$1, gclocals繚g2BeySu+wFnoycgXfElmcg==(SB)
+	0x0000 00000 (C:/Users/ricky_lin/Documents/golangPractice/test/memcache/memcache.go:28)	RET
+	0x0000 c3                                               .
+go:cuinfo.producer.<unlinkable> SDWARFCUINFO dupok size=0
+	0x0000 72 65 67 61 62 69                                regabi
+go:cuinfo.packagename.<unlinkable> SDWARFCUINFO dupok size=0
+	0x0000 6d 65 6d 63 61 63 68 65                          memcache
+<unlinkable>.c SNOPTRBSS size=8
+ SDWARFVAR size=31
+	0x0000 0a 3c 75 6e 6c 69 6e 6b 61 62 6c 65 3e 2e 63 00  .<unlinkable>.c.
+	0x0010 09 03 00 00 00 00 00 00 00 00 00 00 00 00 01     ...............
+	rel 18+8 t=1 <unlinkable>.c+0
+	rel 26+4 t=31 go:info.int+0
+runtime.memequal64繚f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 runtime.memequal64+0
+runtime.gcbits.0100000000000000 SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+type:.namedata.*[8]uint8- SRODATA dupok size=11
+	0x0000 00 09 2a 5b 38 5d 75 69 6e 74 38                 ..*[8]uint8
+type:*[8]uint8 SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 f8 9a 95 1a 08 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64繚f+0
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*[8]uint8-+0
+	rel 48+8 t=1 type:[8]uint8+0
+runtime.gcbits. SRODATA dupok size=0
+type:[8]uint8 SRODATA dupok size=72
+	0x0000 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 89 18 9c b4 0a 01 01 11 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 08 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64繚f+0
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type:.namedata.*[8]uint8-+0
+	rel 44+4 t=-32763 type:*[8]uint8+0
+	rel 48+8 t=1 type:uint8+0
+	rel 56+8 t=1 type:[]uint8+0
+type:.namedata.*[8]int- SRODATA dupok size=9
+	0x0000 00 07 2a 5b 38 5d 69 6e 74                       ..*[8]int
+type:*[8]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 b2 24 38 0a 08 08 08 36 00 00 00 00 00 00 00 00  .$8....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64繚f+0
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*[8]int-+0
+	rel 48+8 t=1 type:noalg.[8]int+0
+type:noalg.[8]int SRODATA dupok size=72
+	0x0000 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  @...............
+	0x0010 94 48 d7 e9 02 08 08 11 00 00 00 00 00 00 00 00  .H..............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 08 00 00 00 00 00 00 00                          ........
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type:.namedata.*[8]int-+0
+	rel 44+4 t=-32763 type:*[8]int+0
+	rel 48+8 t=1 type:int+0
+	rel 56+8 t=1 type:[]int+0
+type:.namedata.*map.bucket[int]int- SRODATA dupok size=21
+	0x0000 00 13 2a 6d 61 70 2e 62 75 63 6b 65 74 5b 69 6e  ..*map.bucket[in
+	0x0010 74 5d 69 6e 74                                   t]int
+type:*map.bucket[int]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 fa 47 83 b9 08 08 08 36 00 00 00 00 00 00 00 00  .G.....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64繚f+0
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*map.bucket[int]int-+0
+	rel 48+8 t=1 type:noalg.map.bucket[int]int+0
+type:.importpath.. SRODATA dupok size=2
+	0x0000 00 00                                            ..
+type:.namedata.topbits- SRODATA dupok size=9
+	0x0000 00 07 74 6f 70 62 69 74 73                       ..topbits
+type:.namedata.keys- SRODATA dupok size=6
+	0x0000 00 04 6b 65 79 73                                ..keys
+type:.namedata.elems- SRODATA dupok size=7
+	0x0000 00 05 65 6c 65 6d 73                             ..elems
+type:.namedata.overflow- SRODATA dupok size=10
+	0x0000 00 08 6f 76 65 72 66 6c 6f 77                    ..overflow
+type:noalg.map.bucket[int]int SRODATA dupok size=176
+	0x0000 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 95 ac 1c dd 02 08 08 19 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 04 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 48 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  H...............
+	0x00a0 00 00 00 00 00 00 00 00 88 00 00 00 00 00 00 00  ................
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type:.namedata.*map.bucket[int]int-+0
+	rel 44+4 t=-32763 type:*map.bucket[int]int+0
+	rel 48+8 t=1 type:.importpath..+0
+	rel 56+8 t=1 type:noalg.map.bucket[int]int+80
+	rel 80+8 t=1 type:.namedata.topbits-+0
+	rel 88+8 t=1 type:[8]uint8+0
+	rel 104+8 t=1 type:.namedata.keys-+0
+	rel 112+8 t=1 type:noalg.[8]int+0
+	rel 128+8 t=1 type:.namedata.elems-+0
+	rel 136+8 t=1 type:noalg.[8]int+0
+	rel 152+8 t=1 type:.namedata.overflow-+0
+	rel 160+8 t=1 type:uintptr+0
+runtime.memhash64繚f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 runtime.memhash64+0
+type:.namedata.*map[int]int- SRODATA dupok size=14
+	0x0000 00 0c 2a 6d 61 70 5b 69 6e 74 5d 69 6e 74        ..*map[int]int
+type:*map[int]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 74 ae 48 51 08 08 08 36 00 00 00 00 00 00 00 00  t.HQ...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64繚f+0
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*map[int]int-+0
+	rel 48+8 t=1 type:map[int]int+0
+type:map[int]int SRODATA dupok size=88
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 9e 66 a5 a2 02 08 08 35 00 00 00 00 00 00 00 00  .f.....5........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 08 08 90 00 04 00 00 00                          ........
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*map[int]int-+0
+	rel 44+4 t=-32763 type:*map[int]int+0
+	rel 48+8 t=1 type:int+0
+	rel 56+8 t=1 type:int+0
+	rel 64+8 t=1 type:noalg.map.bucket[int]int+0
+	rel 72+8 t=1 runtime.memhash64繚f+0
+type:.namedata.*map.hdr[int]int- SRODATA dupok size=18
+	0x0000 00 10 2a 6d 61 70 2e 68 64 72 5b 69 6e 74 5d 69  ..*map.hdr[int]i
+	0x0010 6e 74                                            nt
+type:*map.hdr[int]int SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 03 2c fc e5 08 08 08 36 00 00 00 00 00 00 00 00  .,.....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.memequal64繚f+0
+	rel 32+8 t=1 runtime.gcbits.0100000000000000+0
+	rel 40+4 t=5 type:.namedata.*map.hdr[int]int-+0
+	rel 48+8 t=1 type:noalg.map.hdr[int]int+0
+runtime.gcbits.2c00000000000000 SRODATA dupok size=8
+	0x0000 2c 00 00 00 00 00 00 00                          ,.......
+type:.namedata.count- SRODATA dupok size=7
+	0x0000 00 05 63 6f 75 6e 74                             ..count
+type:.namedata.flags- SRODATA dupok size=7
+	0x0000 00 05 66 6c 61 67 73                             ..flags
+type:.namedata.B. SRODATA dupok size=3
+	0x0000 01 01 42                                         ..B
+type:.namedata.noverflow- SRODATA dupok size=11
+	0x0000 00 09 6e 6f 76 65 72 66 6c 6f 77                 ..noverflow
+type:.namedata.hash0- SRODATA dupok size=7
+	0x0000 00 05 68 61 73 68 30                             ..hash0
+type:.namedata.buckets- SRODATA dupok size=9
+	0x0000 00 07 62 75 63 6b 65 74 73                       ..buckets
+type:.namedata.oldbuckets- SRODATA dupok size=12
+	0x0000 00 0a 6f 6c 64 62 75 63 6b 65 74 73              ..oldbuckets
+type:.namedata.nevacuate- SRODATA dupok size=11
+	0x0000 00 09 6e 65 76 61 63 75 61 74 65                 ..nevacuate
+type:.namedata.extra- SRODATA dupok size=7
+	0x0000 00 05 65 78 74 72 61                             ..extra
+type:noalg.map.hdr[int]int SRODATA dupok size=296
+	0x0000 30 00 00 00 00 00 00 00 30 00 00 00 00 00 00 00  0.......0.......
+	0x0010 72 a1 9f b1 02 08 08 19 00 00 00 00 00 00 00 00  r...............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 09 00 00 00 00 00 00 00 09 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0090 09 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00a0 00 00 00 00 00 00 00 00 0a 00 00 00 00 00 00 00  ................
+	0x00b0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00c0 0c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00d0 00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00  ................
+	0x00e0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00f0 18 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0100 00 00 00 00 00 00 00 00 20 00 00 00 00 00 00 00  ........ .......
+	0x0110 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0120 28 00 00 00 00 00 00 00                          (.......
+	rel 32+8 t=1 runtime.gcbits.2c00000000000000+0
+	rel 40+4 t=5 type:.namedata.*map.hdr[int]int-+0
+	rel 44+4 t=-32763 type:*map.hdr[int]int+0
+	rel 48+8 t=1 type:.importpath..+0
+	rel 56+8 t=1 type:noalg.map.hdr[int]int+80
+	rel 80+8 t=1 type:.namedata.count-+0
+	rel 88+8 t=1 type:int+0
+	rel 104+8 t=1 type:.namedata.flags-+0
+	rel 112+8 t=1 type:uint8+0
+	rel 128+8 t=1 type:.namedata.B.+0
+	rel 136+8 t=1 type:uint8+0
+	rel 152+8 t=1 type:.namedata.noverflow-+0
+	rel 160+8 t=1 type:uint16+0
+	rel 176+8 t=1 type:.namedata.hash0-+0
+	rel 184+8 t=1 type:uint32+0
+	rel 200+8 t=1 type:.namedata.buckets-+0
+	rel 208+8 t=1 type:*map.bucket[int]int+0
+	rel 224+8 t=1 type:.namedata.oldbuckets-+0
+	rel 232+8 t=1 type:*map.bucket[int]int+0
+	rel 248+8 t=1 type:.namedata.nevacuate-+0
+	rel 256+8 t=1 type:uintptr+0
+	rel 272+8 t=1 type:.namedata.extra-+0
+	rel 280+8 t=1 type:unsafe.Pointer+0
+gclocals繚J5F+7Qw7O7ve2QcWC7DpeQ== SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
+gclocals繚Gi+ewyUrOze142o4ULSYMg== SRODATA dupok size=10
+	0x0000 02 00 00 00 06 00 00 00 00 2c                    .........,
+<unlinkable>.Cal.stkobj SRODATA static size=24
+	0x0000 01 00 00 00 00 00 00 00 d0 ff ff ff 30 00 00 00  ............0...
+	0x0010 30 00 00 00 00 00 00 00                          0.......
+	rel 20+4 t=5 runtime.gcbits.2c00000000000000+0
+<unlinkable>.Cal.arginfo1 SRODATA static dupok size=3
+	0x0000 00 08 ff                                         ...
+<unlinkable>.Cal.argliveinfo SRODATA static dupok size=2
+	0x0000 00 00                                            ..
+gclocals繚g2BeySu+wFnoycgXfElmcg== SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
