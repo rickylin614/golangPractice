@@ -1,19 +1,18 @@
 package main
 
 import (
-	"errors"
+	"crypto/rand"
 	"fmt"
+	"math/big"
 	"runtime/debug"
 )
 
 func main() {
 	defer func() {
 		if err := recover(); err != nil {
-			fmt.Println("Trace Method1 dubug.Stack", string(debug.Stack()))
-			// errors.
-			// err, _ := err.(errors.StackTrace)
-			// fmt.Println("Trace Method2 errors.StackTrace")
+			fmt.Println("Trace Method1 dubug.Stack", err, string(debug.Stack()))
 		}
+		fmt.Println("12333")
 	}()
 	A()
 }
@@ -33,5 +32,12 @@ func C() {
 var count = 0
 
 func D() {
-	panic(errors.New("err!!"))
+
+	i, err := rand.Int(rand.Reader, big.NewInt(int64(0)))
+	fmt.Println(i, err)
+
+	// goroutine的panic會強制程序結束且無法被main的defer接到。需要謹慎使用。
+	// go func () {
+	// 	panic(errors.New("err!!"))
+	// }()
 }

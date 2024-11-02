@@ -5,7 +5,7 @@ import (
 	"encoding/base64"
 	"fmt"
 
-	rsautil "practice/test/ras2/rsa"
+	rsautil "test/ras2/rsa"
 )
 
 // var pubKey = `-----BEGIN PUBLIC KEY-----
